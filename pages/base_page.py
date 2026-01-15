@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
     def __init__(self, driver):
@@ -23,3 +24,10 @@ class BasePage:
             return self.driver.find_element(*locator).is_displayed()
         except:
             return False
+
+    def drag_and_drop(self, source_locator, target_locator):
+        source = self.driver.find_element(*source_locator)
+        target = self.driver.find_element(*target_locator)
+
+        actions = ActionChains(self.driver)
+        actions.drag_and_drop(source, target).perform()
