@@ -4,7 +4,6 @@ from pages.base_page import BasePage
 class DragAndDropPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.checkboxes = (By.CSS_SELECTOR, "input[type='checkbox']")
         self.ColumnA = (By.ID, "column-a")
         self.ColumnB = (By.ID, "column-b")
 
